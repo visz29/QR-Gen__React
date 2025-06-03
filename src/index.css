@@ -1,0 +1,32 @@
+@import "tailwindcss";
+.glow{
+            display: flex;
+            background: black;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            animation:  2s linear infinite;
+            z-index: 0;
+        }
+        .glow::after , .glow::before{
+            display: flex;
+            position: absolute;
+            content: "";
+            width: calc(100% + 1px);
+            height: calc(100% + 1px);
+            background: linear-gradient(45deg,cyan,red,orange,yellow,limegreen,purple,blue,cyan);
+            background-size: 400%;
+            animation: anime 20s linear infinite;
+            
+            z-index: -1;
+            border-radius: 1rem;
+        }
+        @keyframes anime{
+            0%{background-position: 0 0;}
+            50%{background-position: 400% 0;}
+            100%{background-position: 0 0;}
+        }
+        
+        .glow::after{
+            filter: blur(10px);
+        }
